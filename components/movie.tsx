@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 
 import styles from "../styles/movie.module.css";
@@ -19,7 +18,9 @@ export default function Moive({ title, id, poster_path }: IMovieProps) {
   return (
     <div className={styles.movie} key={id}>
       <img src={poster_path} alt={title} onClick={onClick} />
-      <Link href={`/movies/${id}`}>{title}</Link>
+      <Link prefetch href={`/movies/${id}`}>
+        {title}
+      </Link>
     </div>
   );
 }
